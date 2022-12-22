@@ -74,8 +74,8 @@ public:
 
 class Controller
 {
-	allDots* all_objs_dots; // все вершины в сцене
-	allPols* all_objs_pols; // все многоугольники в сцене
+	allDots* all_objs_dots;
+	allPols* all_objs_pols;
 	Prism p1;
 	Prism p2;
 	Dot* d1;
@@ -110,10 +110,12 @@ class Controller
 
 	void color(okno* _w, int _color)
 	{
-		for (int x = _w->Xstart; x < _w->Xstart + _w->size; x++)
-		{	
+		int x1 = _w->Xstart;
+		int x2 = _w->Xstart + _w->size;
+		for (int y = _w->Ystart; y < _w->Ystart + _w->size; y++)
+		{
 			setcolor(_color);
-			line(x, _w->Ystart, x, _w->Ystart + _w->size);
+			line(x1, y, x2, y);
 		}
 	}
 
